@@ -29,7 +29,7 @@ function App() {
     console.log(text)
 
     const apiCall = async () => {
-      const res = await giphy.animate(text, {limit: 15})
+      const res = await giphy.animate(text, {limit: 20})
       console.log(res)
       setResults(res.data)
     }
@@ -47,8 +47,8 @@ function App() {
       <h1>Animated Text Generator</h1>
       <h3>Type text into the form and hit submit</h3>
 
-      <input value={text} onChange={handleInput} />
-      <button onClick={handleSubmit}>Submit</button>
+      <input className='input-field' value={text} onChange={handleInput} />
+      <button className='btn' onClick={handleSubmit}>Submit</button>
       <Error isError={err} text='need length longer than 0 for input'/>
       {results && <TextList gifs={results}  />}
     </div>
