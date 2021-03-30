@@ -1,4 +1,3 @@
-
 const TextList = (props) => {
     //create array of item components
     const items = props.gifs.map((itemData) => {
@@ -11,7 +10,6 @@ const TextList = (props) => {
     )
     
 }
-
 const Item = (props) => {
     return(
         <div className='gif-item'>
@@ -19,5 +17,4 @@ const Item = (props) => {
         </div>
     )
 }
-
 export default TextList

@@ -6,13 +6,10 @@ import './App.css';
 
 const giphy = new GiphyFetch(process.env.REACT_APP_GIPHY_KEY)
 
-
 function App() {
   const [text, setText] = useState('')
-  const [textLength, setTextLength] = useState(0)
   const [results, setResults] = useState([])
   const [err, setErr] = useState(false)
-  //console.log(process.env.REACT_APP_GIPHY_KEY)
 
   const handleInput = (e) => {
     setText(e.target.value)
@@ -20,7 +17,7 @@ function App() {
 
   const handleSubmit = (e) => {
     if(text.length === 0) {
-      console.log('length is 0, please insert text before submitting')
+      
       //set error state to true
       setErr(true)
       return
@@ -30,7 +27,7 @@ function App() {
 
     const apiCall = async () => {
       const res = await giphy.animate(text, {limit: 20})
-      console.log(res)
+      
       setResults(res.data)
     }
     
@@ -40,13 +37,11 @@ function App() {
     setErr(false)
 
   }
-
   
   return (
     <div className="App">
       <h1>Animated Text Generator</h1>
       <h3>Type text into the form and hit submit</h3>
-
       <input className='input-field' value={text} onChange={handleInput} />
       <button className='submit-btn' onClick={handleSubmit}>Submit</button>
       <Error isError={err} text='need length longer than 0 for input'/>
@@ -54,5 +49,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
